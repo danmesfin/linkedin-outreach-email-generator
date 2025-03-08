@@ -1,0 +1,59 @@
+{
+  "title": "LinkedIn Outreach Email Generator",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "profileUrls": {
+      "title": "LinkedIn Profile URLs",
+      "type": "array",
+      "description": "List of LinkedIn profile URLs to generate outreach emails for.",
+      "editor": "stringList",
+      "prefill": [
+        "https://www.linkedin.com/in/danielmesfin"
+      ]
+    },
+    "outreachPurpose": {
+      "title": "Outreach Purpose",
+      "type": "string",
+      "description": "The purpose of your outreach (e.g., networking, job opportunity, collaboration).",
+      "editor": "select",
+      "enum": [
+        "networking",
+        "job_opportunity",
+        "collaboration",
+        "sales",
+        "partnership",
+        "other"
+      ],
+      "default": "networking"
+    },
+    "customMessage": {
+      "title": "Custom Message",
+      "type": "string",
+      "description": "Additional context or specific points you want to include in the outreach email.",
+      "editor": "textarea",
+      "nullable": true
+    },
+    "modelName": {
+      "title": "OpenAI model",
+      "type": "string",
+      "description": "The OpenAI model to use. Currently supported models are gpt-4o and gpt-4o-mini",
+      "enum": [
+        "gpt-4o",
+        "gpt-4o-mini"
+      ],
+      "default": "gpt-4o-mini"
+    },
+    "debug": {
+      "title": "Debug",
+      "type": "boolean",
+      "description": "If enabled, the Actor will run in debug mode and produce more output.",
+      "editor": "checkbox",
+      "default": false
+    }
+  },
+  "required": [
+    "profileUrls",
+    "outreachPurpose"
+  ]
+}
