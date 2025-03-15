@@ -1,13 +1,42 @@
 {
 	"actorSpecification": 1,
-	"name": "agent-actor",
+	"name": "Outreach email generating agent-actor",
 	"title": "Python CrewAI Agent",
-	"description": "CrewAI agent in python",
+	"description": "Outreach email generator agent based on linkedin profile",
 	"version": "0.0",
 	"buildTag": "latest",
 	"input": "./input_schema.json",
 	"meta": {
 		"templateId": "python-crewai"
 	},
-	"dockerfile": "./Dockerfile"
+	    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "transformation": {
+                        "fields": [
+                            "profileUrl",
+                	    "outreachEmail"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "profileUrl": {
+                                "label": "Profile URL",
+                                "format": "text"
+                            },
+                            "outreachEmail": {
+                                "label": "Outreach",
+                                "format": "text"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "dockerfile": "./Dockerfile"
 }
